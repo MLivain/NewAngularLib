@@ -2,6 +2,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "FreeWalletYnv": [
+        "dist/free-wallet-ynv/free-wallet-ynv",
+        "dist/free-wallet-ynv"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

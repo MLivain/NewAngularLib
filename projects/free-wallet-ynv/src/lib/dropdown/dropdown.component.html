@@ -1,0 +1,5 @@
+<select  [formControl]="form" id="currencies">
+    <option  *ngFor="let currency of currencies" [ngValue]="currency" placeholder="Choisissez votre monnaie">
+      {{currency.name}} {{currency.symbol}}
+    </option>
+</select>

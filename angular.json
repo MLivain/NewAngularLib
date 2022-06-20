@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "FreeWalletYnv": {
+      "projectType": "library",
+      "root": "projects/free-wallet-ynv",
+      "sourceRoot": "projects/free-wallet-ynv/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/free-wallet-ynv/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/free-wallet-ynv/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/free-wallet-ynv/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/free-wallet-ynv/src/test.ts",
+            "tsConfig": "projects/free-wallet-ynv/tsconfig.spec.json",
+            "karmaConfig": "projects/free-wallet-ynv/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "FreeWalletYnv"
 }
