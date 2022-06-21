@@ -2,6 +2,6 @@
     <input type="text" id="myExchangeInputValue" (keyup)="updateSelectedCurrencyValue()" value="{{exchangeValue}}"/>
     <fw-dropdown [currencies]="currencies" (newSelectEvent)="updateSelectedCurrency($event)"></fw-dropdown>
     <div *ngFor="let currency of currencies">
-        <fwy-currency-card [currency]="currency" [currencyToExchange]="selectedCurrencyToExchange"></fwy-currency-card>
+        <fwy-currency-card [currency]="currency" [currencyToExchange]="selectedCurrencyToExchange" [exchangeValue]="exchangeValue"></fwy-currency-card>
     </div>
 </div>

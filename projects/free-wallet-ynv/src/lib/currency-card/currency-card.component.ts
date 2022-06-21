@@ -10,7 +10,7 @@ export class CurrencyCardComponent implements OnInit {
 
   @Input() currency?:CurrencyModel;
   @Input() currencyToExchange?:CurrencyModel;
-  @Input() exchangeRate?:number;
+  @Input() exchangeValue?:number;
   constructor() { }
 
   ngOnInit(): void {
