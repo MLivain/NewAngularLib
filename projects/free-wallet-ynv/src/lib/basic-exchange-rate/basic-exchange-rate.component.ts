@@ -9,9 +9,7 @@ import {CurrencyModel} from "../models/currency.model";
 })
 export class BasicExchangeRateComponent implements OnInit {
 
-  CurrencyOne?="";
-  CurrencyTwo?="";
-  ExchangeRate?=0;
+  exchangeValue=1;
   selectedCurrencyToExchange?:CurrencyModel;
 
   @Input() currencies?:Array<CurrencyModel>;
@@ -22,12 +20,27 @@ export class BasicExchangeRateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateSelectedCurrency(currency:CurrencyModel){
+  updateSelectedCurrency(currency?:CurrencyModel,value?:number){
     this.selectedCurrencyToExchange = currency;
-    if(this.currencies){
+    if(value)
+    this.exchangeValue = value;
+    if(this.currencies && currency){
       this.currencies.forEach(element => {
         if(currency.valueUSD && element.valueUSD)
-        element.exchangeRate = (1*element.valueUSD)/currency.valueUSD;
+        element.exchangeRate = ((1*element.valueUSD)/currency.valueUSD)*this.exchangeValue;
+      });
+    }
+  }
+
+  updateSelectedCurrencyValue(){
+    let value:number = +(<HTMLInputElement>document.getElementById("myExchangeInputValue")).value;
+    if(value)
+    this.exchangeValue = value;
+    if(this.currencies && this.selectedCurrencyToExchange && this.selectedCurrencyToExchange.valueUSD){
+      this.currencies.forEach(element => {
+        if(this.selectedCurrencyToExchange)
+        if(this.selectedCurrencyToExchange.valueUSD && element.valueUSD)
+        element.exchangeRate = ((1*element.valueUSD)/this.selectedCurrencyToExchange.valueUSD)*this.exchangeValue;
       });
     }
   }
